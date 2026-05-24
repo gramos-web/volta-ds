@@ -17,22 +17,40 @@ https://www.figma.com/design/vjrN5lOBkDJhao0AU2hHYC/Playground---Exploraciones
 volta-ds/
 ├── AGENTS.md                    ← estás aquí
 ├── README.md
-├── 01-foundations/
-│   ├── color.md
-│   ├── typography.md
-│   └── spacing-radius-shadow.md
-├── 02-components/
-│   ├── button.md
-│   ├── input.md
-│   ├── modal.md
-│   ├── notification.md
-│   ├── card.md
-│   └── badge-tag.md
-└── 03-patterns/
-    ├── form-flow.md
-    ├── empty-state.md
-    ├── confirmation-flow.md
-    └── resource-list.md
+├── package.json
+└── src/
+    ├── tokens.js                ← todos los tokens del sistema
+    ├── index.js                 ← barrel exports
+    ├── foundations/
+    │   ├── color.md
+    │   ├── typography.md
+    │   └── spacing-radius-shadow.md
+    ├── components/
+    │   ├── button/
+    │   │   ├── Button.jsx
+    │   │   └── button.md
+    │   ├── input/
+    │   │   ├── Input.jsx
+    │   │   └── input.md
+    │   ├── modal/
+    │   │   ├── Modal.jsx
+    │   │   └── modal.md
+    │   ├── notification/
+    │   │   ├── Notification.jsx
+    │   │   └── notification.md
+    │   ├── card/
+    │   │   ├── Card.jsx
+    │   │   └── card.md
+    │   ├── badge/
+    │   │   ├── Badge.jsx
+    │   │   └── badge-tag.md
+    │   └── examples/
+    │       └── FormExample.jsx
+    └── patterns/
+        ├── form-flow.md
+        ├── empty-state.md
+        ├── confirmation-flow.md
+        └── resource-list.md
 ```
 
 ---
@@ -41,9 +59,9 @@ volta-ds/
 
 ### Antes de generar cualquier UI
 
-1. **Consulta foundations primero** — `01-foundations/color.md` y `typography.md` tienen los tokens. Nunca uses valores hardcoded.
-2. **Verifica el componente** — Si existe en `02-components/`, léelo antes de escribir código.
-3. **Verifica el patrón** — Si la pantalla corresponde a un patrón en `03-patterns/`, léelo para entender la secuencia completa de estados.
+1. **Consulta foundations primero** — `src/foundations/color.md` y `typography.md` tienen los tokens. Nunca uses valores hardcoded.
+2. **Verifica el componente** — Si existe en `src/components/`, léelo antes de escribir código.
+3. **Verifica el patrón** — Si la pantalla corresponde a un patrón en `src/patterns/`, léelo para entender la secuencia completa de estados.
 
 ### Reglas que nunca se violan
 
@@ -86,21 +104,21 @@ volta-ds/
 
 ### Generar un formulario
 ```
-Usando Volta DS (ver 03-patterns/form-flow.md), genera un formulario de [propósito]
+Usando Volta DS (ver src/patterns/form-flow.md), genera un formulario de [propósito]
 con los campos [lista]. Aplica: primary disabled hasta completar requeridos,
 validación on-blur, error messages con causa+solución, Toast success al enviar.
 ```
 
 ### Generar una pantalla de lista
 ```
-Usando Volta DS (ver 03-patterns/resource-list.md), genera Resource List para [recurso].
+Usando Volta DS (ver src/patterns/resource-list.md), genera Resource List para [recurso].
 Columnas: [lista]. Incluye search, filtros, badge de estado, acciones en hover,
 bulk action bar. 5 zonas en orden obligatorio.
 ```
 
 ### Generar flujo de eliminación
 ```
-Usando Volta DS (ver 03-patterns/confirmation-flow.md), genera flujo nivel 3
+Usando Volta DS (ver src/patterns/confirmation-flow.md), genera flujo nivel 3
 para eliminar [entidad]. Modal con consecuencias específicas + input de confirmación
 (palabra: "[palabra]") + loading + toast persistente + redirect a [destino].
 ```
